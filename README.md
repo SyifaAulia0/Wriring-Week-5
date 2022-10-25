@@ -32,3 +32,28 @@
 }
  ```
 
+penulisan function di react harus pakai huruf besar diawal. 
+harus ada return
+hanya boleh ada 1 parent utama
+<div></div> atau pake tag kosong
+
+pake boostrap bisa download cdn atau download di npm. 
+pasang di html
+
+
+ydi react 'class' tidak ada, adanya className
+
+statw adalah sebuah object untuk menyimpan data di react
+
+props digunajan untuk komunikasi dari components parent dan child
+ngirim sebuah parameter di function
+data ditampung si state, dikirim melalu props
+
+props dipasang di function
+const Memberinfo = (props)
+clg(prosp)
+
+custom data.
+masukin ke app -> {} data baru
+
+useState untuk menyimpan data yg sifatnya berubah2
