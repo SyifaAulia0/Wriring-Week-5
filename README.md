@@ -153,7 +153,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </React.StrictMode>
 )
 ```
-```
+```js
 //App.jsx
 import { useState } from "react";
 import Card from "./components/Card";
