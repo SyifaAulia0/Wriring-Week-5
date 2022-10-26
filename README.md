@@ -50,7 +50,7 @@ reportWebVitals();
  
  function App(){
   return(
-    <h1>Syifa></h1>   //output : Syifa
+    <h1>Syifa</h1>   //output : Syifa
   )
 }
 
@@ -69,29 +69,75 @@ function App(){
 ```
 - hanya boleh ada 1 parent utama <div></div> atau pake tag kosong
 ```js
+//App.js
 function App(){
   return(
   <>
-    <h1>Syifa></h1>
+    <h1>Syifa</h1>
   </>
   )
 }
 ```
 - Jika ingin pakai pake boostrap, bisa download cdn atau download di npm, lalu pasang di html
+- di react 'class' tidak ada, adanya className
+```js
+//App.jsx
+import "./App.css";
+function App(){
+  return(
+  <>
+    <div>img src="" alt="" className="profile-img"/>
+    </div>
+  </>
+  );
+}
+```
+```css
+//App.css
+.profile-img{
+ width: 150px;
+ height: 150px;
+ overflow: hidden;
+ border-radius: 100%
+ object-fit: cover;
+}
+```
+## State dan Props
+- component adalah bagian2 dari sebuah website
+- state : data yg tinggal di dalam komponen tersebut
+- props data yang dikasih/pemberian dat. Digunakan untuk komunikasi dari components parent dan child ngirim sebuah parameter di function
+- state adalah sebuah object untuk menyimpan data di react
+- prosesnya : data ditampung di state, kemudian dikirim melalu props
+- props dipasang di function
+```js
+//buat file baru didalam components, dengan nama MemberInfo.jsx
+//MemberInfo.jsx
+const MemberInfo = (props) => {
+ return (
+  <div className="profile-container">
+   <img src="" alt="" className=""/>
+   <div className="profile-info">
+    <h2>{}/h2>
+    <h3>22 tahun</h3>
+    <p>peserta bootcamp frontend</p>
+   </div>
+  </div>
+ )
+}
+```
+```js
+//App.jsx
+import"./App.css";
+import Memberinfo from "./components/MemberInfo";
 
-
-ydi react 'class' tidak ada, adanya className
-
-statw adalah sebuah object untuk menyimpan data di react
-
-props digunajan untuk komunikasi dari components parent dan child
-ngirim sebuah parameter di function
-data ditampung si state, dikirim melalu props
-
-props dipasang di function
-const Memberinfo = (props)
-clg(prosp)
-
+function App(){
+ return(
+  <>
+   <MemberInfo/>    //output : memangggil data dari MemberInfo
+  </>
+ );
+}
+```
 custom data.
 masukin ke app -> {} data baru
 
