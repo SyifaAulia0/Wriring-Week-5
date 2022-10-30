@@ -184,4 +184,19 @@ function App() {
 
 export default App;
 ```
+### Life Cycle
+- ada 3 Siklus : Mount, update, unmount
+- Membuat component ada 2 cara :
+ 1. Function component
+ 2. class component
+ - yang ada pada class component
+  - componentDidMount
+  - componentDidUpdate
+  - componentWillUnmount 
+- use effect : memberikan efek samping/untuk memperlihatkan apa yang terjadi ketika datanya berubah
+ketika komponen muncul, ngambil data dari api
+jika ada dta yg berubah, componentnya akan diulang dari awal/di render
+axios diganakan sebagai pengganti fetch
+tanpa [] dijalankan berkali2 (mount dan update)
+pakai [] dijalankan 1x aja (mount)
 
