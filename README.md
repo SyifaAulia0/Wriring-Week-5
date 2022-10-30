@@ -194,6 +194,42 @@ export default App;
   - componentDidUpdate
   - componentWillUnmount 
 - use effect : memberikan efek samping/untuk memperlihatkan apa yang terjadi ketika datanya berubah
+```js
+//main.jsx
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import App from './App'
+
+ReactDOM.createRoot(document.getElementById('root')).render(
+  // <React.StrictMode>
+    <App />
+  // </React.StrictMode>
+)
+```
+```js
+//ListDigimon.jsx
+import{useEffect} from "react";
+function ListDigimon(){
+ console.log("List Digimon dipanggil");  //output pada console : List Digimon dipanggil
+ useEffect(() => {
+  console.log("ListDigimon mount")  //output pada console : ListDigimon mount
+ })
+
+ return(
+  <>
+   <h1>Hallo</h1>  //output : Hallo
+  </>
+ )
+}
+
+export default ListDigimon
+```
+- pada kodingan diatas, proses pertama yang ditampilkan adalah List Digimon dipanggil, kemudian Hallo, dan yang terakhir ListDigimon mount
+- pda tiap life cycle, kita dapat menambahkan efek yang diperlukan, contohnya :
+  - ketika komponen mucul, ambil data pakai fetch
+  - ketika data state berubah, lakukan filter
+  - ketika komponen hilang, data state jangan diupdate
+
 ketika komponen muncul, ngambil data dari api
 jika ada dta yg berubah, componentnya akan diulang dari awal/di render
 axios diganakan sebagai pengganti fetch
