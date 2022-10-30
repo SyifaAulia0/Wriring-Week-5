@@ -189,10 +189,10 @@ export default App;
 - Membuat component ada 2 cara :
  1. Function component
  2. class component
- - yang ada pada class component
-  - componentDidMount
-  - componentDidUpdate
-  - componentWillUnmount 
+  - yang ada pada class component
+   1. componentDidMount
+   2. componentDidUpdate
+   3. componentWillUnmount 
 - use effect : memberikan efek samping/untuk memperlihatkan apa yang terjadi ketika datanya berubah
 ```js
 //main.jsx
@@ -225,14 +225,62 @@ function ListDigimon(){
 export default ListDigimon
 ```
 - pada kodingan diatas, proses pertama yang ditampilkan adalah List Digimon dipanggil, kemudian Hallo, dan yang terakhir ListDigimon mount
-- pda tiap life cycle, kita dapat menambahkan efek yang diperlukan, contohnya :
+- pada tiap life cycle, kita dapat menambahkan efek yang diperlukan, contohnya :
   - ketika komponen mucul, ambil data pakai fetch
   - ketika data state berubah, lakukan filter
   - ketika komponen hilang, data state jangan diupdate
+```js
+//ListDigimon.jsx
+import{useEffect, useState} from "react";
+function ListDigimon(){
+ const [isLoading, setIsLoading] = useState(false)
+ console.log("List Digimon dipanggil");  //output pada console : List Digimon dipanggil
+ useEffect(() => {
+  console.log("ListDigimon mount")  //output pada console : ListDigimon mount
+ })
 
-ketika komponen muncul, ngambil data dari api
-jika ada dta yg berubah, componentnya akan diulang dari awal/di render
-axios diganakan sebagai pengganti fetch
-tanpa [] dijalankan berkali2 (mount dan update)
-pakai [] dijalankan 1x aja (mount)
+ return(
+  <>
+   <h1>Hallo</h1>
+   <button onClick={() => setIsLoading(!isLoading)} ubah loading</>
+   <span>{isLoading + ""}</span>
+  </>
+ )
+}
+
+export default ListDigimon
+```
+- output 
+ ![Screenshot (3324)](https://user-images.githubusercontent.com/114098894/198884859-ce4c3d13-50c3-4e5a-b5f2-7e1c15dd3815.png)
+- ketika button ubah loading di klik, maka tulisan false akan berubah menjadi true dan seterusnya
+```js
+//ListDigimon.jsx
+import axios from "axios";  
+import{useEffect, useState} from "react";
+function ListDigimon(){
+ const [isLoading, setIsLoading] = useState(false)
+ const [digimons, setdigimons] = useState([])
+ console.log("List Digimon dipanggil");  //output pada console : List Digimon dipanggil
+ useEffect(() => {
+  console.log("ListDigimon mount")  //output pada console : ListDigimon mount
+  axios("https://digimon-api.vercel.app/api/digimon") //axios digunakan sebagai pengganti fetch
+  .then(res=> {
+  setDigimosn(res.data))
+}, []); //tanpa [] dijalankan berkali2 (mount dan update), pakai [] dijalankan 1x aja (mount)
+
+console.log(digimons);
+ return(
+  <>
+   <h1>Hallo</h1>
+   <button onClick={() => setIsLoading(!isLoading)} ubah loading</>
+   <span>{isLoading + ""}</span>
+   {digimons.map()}  //output pada console : menampilkan secara rinci data2 pada digimons
+  </>
+ )
+}
+
+export default ListDigimon
+```
+- 
+
 
