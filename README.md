@@ -206,7 +206,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   // </React.StrictMode>
 )
 ```
-```js
+```jsx
 //ListDigimon.jsx
 import{useEffect} from "react";
 function ListDigimon(){
@@ -229,7 +229,7 @@ export default ListDigimon
   - ketika komponen mucul, ambil data pakai fetch
   - ketika data state berubah, lakukan filter
   - ketika komponen hilang, data state jangan diupdate
-```js
+```jsx
 //ListDigimon.jsx
 import{useEffect, useState} from "react";
 function ListDigimon(){
@@ -253,7 +253,7 @@ export default ListDigimon
 - output 
  ![Screenshot (3324)](https://user-images.githubusercontent.com/114098894/198884859-ce4c3d13-50c3-4e5a-b5f2-7e1c15dd3815.png)
 - ketika button ubah loading di klik, maka tulisan false akan berubah menjadi true dan seterusnya
-```js
+```jsx
 //ListDigimon.jsx
 import axios from "axios";  
 import{useEffect, useState} from "react";
